@@ -48,3 +48,18 @@ Modified class 'Approver' changed interface to 'IApprover'.
 Modified package 'interfaces'.
 Created interface 'IApprover'.
 Modified interface 'IHandler'.
+
+v1.2
+
+Created package 'common.utils'.
+Moved 'common.TypeFormatter' to 'common.utils'.
+
+Created source packages 'main'.
+Moved all source code to 'main'.
+
+Created source packages 'test'.
+Created class 'Main'.
+Created class 'RequestTest'.
+
+Created package 'test.common'
+Created class 'Response'.

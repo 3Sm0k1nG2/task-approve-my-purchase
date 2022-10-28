@@ -1,44 +1,37 @@
 package handlers;
 
-import common.Type;
+import budgets.Budget;
+import com.sun.jdi.InvalidTypeException;
+import requests.Request;
 
 /**
  * //TODO - If needed, validate logic and if possible optimize code
  */
 public class Manager extends Approver {
-    @Override
-    public void approve(int id, double cost, Type type) {
-        if (canApprove(id, cost, type)) {
-            System.out.println("Manager approved purchase with id " + id + " that costs " + cost);
-            return;
-        }
+    protected Budget budget;
 
-        System.out.println("Purchase with id " + id + " needs approval from higher position than Manager.");
-        next.approve(id, cost, type);
+    public Manager(){
+        super();
+        this.budget = new budgets.Manager();
     }
 
     @Override
-    protected boolean canApprove(int id, double cost, Type type) {
-        boolean result = false;
+    public void approve(Request request) {
+        if (canApprove(request)) {
+            System.out.println("Manager approved purchase with id " + request.getId() + " that costs " + request.getCost());
+            return;
+        }
 
-        if (type == Type.CONSUMABLES && cost <= 300) {
-            result = true;
-            return result;
-        } else if (type == Type.CLERICAL && cost <= 500) {
-            result = false;
-            return result;
-        } else if (type == Type.GADGETS && cost <= 1000) {
-            result = true;
-            return result;
-        } else if (type == Type.GAMING && cost <= 2000) {
-            result = true;
-            return result;
-        } else if (type == Type.PC && cost <= 5000) {
-            result = true;
-            return result;
-        } else {
-            result = false;
-            return result;
+        System.out.println("Purchase with id " + request.getId() + " needs approval from higher position than Manager.");
+        next.approve(request);
+    }
+
+    @Override
+    protected boolean canApprove(Request request){
+        try{
+            return request.getCost() <= this.budget.getLimit(request.getType());
+        } catch (InvalidTypeException e) {
+            return false;
         }
     }
 }

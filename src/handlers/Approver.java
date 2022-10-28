@@ -1,16 +1,16 @@
 package handlers;
 
-import common.Type;
+import interfaces.IHandler;
+import requests.Request;
 
-public abstract class Approver {
-
+public abstract class Approver implements IHandler {
     protected Approver next;
 
     /**
      * If needed, be free to change signature of abstract methods.
      */
-    public abstract void approve(int id, double cost, Type type);
-    protected abstract boolean canApprove(int id, double cost, Type type);
+    public abstract void approve(Request request);
+    protected abstract boolean canApprove(Request request);
 
     /**
      * Method used for registering next approver level.

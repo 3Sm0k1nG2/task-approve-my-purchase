@@ -1,6 +1,6 @@
-import common.Type;
 import handlers.Approver;
 import handlers.Manager;
+import requests.*;
 
 /**
  * Execution class of the application.
@@ -13,9 +13,19 @@ public class PurchaseApprovalExecutor {
         ApprovalChainGenerator.generate(manager);
         //Be free to modify method below this line
 
-        manager.approve(1, 15000, Type.CONSUMABLES);
-        manager.approve(2, 5000, Type.PC);
-        manager.approve(3, 5000, Type.PC);
-        manager.approve(4, 3000, Type.CLERICAL);
+        // common.Request is abstract class
+        // TypeRequest(double cost) -> e.g. PCRequest, ConsumableRequest, ...
+        // id -> automatically assigned
+        // type -> automatically assigned from selected TypeRequest();
+
+        manager.approve(new Consumable(15000));
+        manager.approve(new PC(5000));
+        manager.approve(new PC(5000));
+        manager.approve(new Clerical(3000));
+
+        // manager.approve(1, 15000, Type.CONSUMABLES);
+        // manager.approve(2, 5000, Type.PC);
+        // manager.approve(3, 5000, Type.PC);
+        // manager.approve(4, 3000, Type.CLERICAL);
     }
 }

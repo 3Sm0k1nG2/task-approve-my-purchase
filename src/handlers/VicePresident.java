@@ -1,20 +1,38 @@
 package handlers;
 
-import common.Type;
+import budgets.Budget;
+import com.sun.jdi.InvalidTypeException;
+import requests.Request;
 
 
 /**
  * //TODO - Implement approval implementation for VicePresident level
  */
-public class VicePresident extends Approver{
-    @Override
-    public void approve(int id, double cost, Type type) {
+public class VicePresident extends Approver {
+    protected Budget budget;
 
-        next.approve(id, cost, type);
+    public VicePresident(){
+        super();
+        this.budget = new budgets.VicePresident();
     }
 
     @Override
-    protected boolean canApprove(int id, double cost, Type type) {
-        return false;
+    public void approve(Request request) {
+        if (canApprove(request)) {
+            System.out.println("Vice President approved purchase with id " + request.getId() + " that costs " + request.getCost());
+            return;
+        }
+
+        System.out.println("Purchase with id " + request.getId() + " needs approval from higher position than Vice President.");
+        next.approve(request);
+    }
+
+    @Override
+    protected boolean canApprove(Request request){
+        try{
+            return request.getCost() <= this.budget.getLimit(request.getType());
+        } catch (InvalidTypeException e) {
+            return false;
+        }
     }
 }

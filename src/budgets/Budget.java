@@ -1,6 +1,6 @@
 package budgets;
 
-import common.Type;
+import common.types.Item;
 import interfaces.IBudget;
 import items.*;
 import com.sun.jdi.InvalidTypeException;
@@ -24,13 +24,13 @@ public class Budget implements IBudget {
         };
     }
 
-    public double getLimit(Type type) throws InvalidTypeException{
+    public double getLimit(Item itemType) throws InvalidTypeException{
          for (items.Item item : this.budgets) {
-             if(item.getType() == type) {
+             if(item.getType() == itemType) {
                  return item.getCost();
              }
          }
 
-         throw new InvalidTypeException("Invalid type or not found. Typed received: " + type.name());
+         throw new InvalidTypeException("Invalid type or not found. Typed received: " + itemType.name());
     }
 }

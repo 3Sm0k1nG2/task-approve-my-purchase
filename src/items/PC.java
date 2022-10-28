@@ -1,10 +1,10 @@
 package items;
 
-import common.Type;
+import common.types.Item;
 
 public class PC extends items.Item {
 
     public PC(double limit) {
-        super(limit, Type.PC);
+        super(limit, Item.PC);
     }
 }

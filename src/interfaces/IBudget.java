@@ -1,8 +1,8 @@
 package interfaces;
 
-import common.Type;
+import common.types.Item;
 import com.sun.jdi.InvalidTypeException;
 
 public interface IBudget {
-    double getLimit(Type type) throws InvalidTypeException;
+    double getLimit(Item itemType) throws InvalidTypeException;
 }

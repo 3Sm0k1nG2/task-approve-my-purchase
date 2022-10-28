@@ -1,19 +1,18 @@
 package items;
 
-import common.Type;
 import interfaces.IItem;
 
 public class Item implements IItem {
 
     private double _cost;
-    private Type _type;
+    private common.types.Item _type;
 
-    public Item(double cost, Type type){
+    public Item(double cost, common.types.Item type){
         _type = type;
         _cost = cost;
     }
 
-    public Type getType() {
+    public common.types.Item getType() {
         return _type;
     }
 

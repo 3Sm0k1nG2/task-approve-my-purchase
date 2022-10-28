@@ -1,9 +1,9 @@
 package interfaces;
 
 
-import common.Type;
+import common.types.Item;
 
 public interface IItem {
-    Type getType();
+    Item getType();
     double getCost();
 }

@@ -1,6 +1,7 @@
 import handlers.Approver;
 import handlers.Manager;
-import requests.*;
+import items.*;
+import common.Request;
 
 /**
  * Execution class of the application.
@@ -18,10 +19,10 @@ public class PurchaseApprovalExecutor {
         // id -> automatically assigned
         // type -> automatically assigned from selected TypeRequest();
 
-        manager.approve(new Consumable(15000));
-        manager.approve(new PC(5000));
-        manager.approve(new PC(5000));
-        manager.approve(new Clerical(3000));
+        manager.approve(new Request(new Consumable(15000)));
+        manager.approve(new Request(new PC(5000)));
+        manager.approve(new Request(new PC(5000)));
+        manager.approve(new Request(new Clerical(3000)));
 
         // manager.approve(1, 15000, Type.CONSUMABLES);
         // manager.approve(2, 5000, Type.PC);

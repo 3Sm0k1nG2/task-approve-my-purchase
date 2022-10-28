@@ -1,9 +1,7 @@
 package interfaces;
 
-import handlers.Approver;
-import requests.Request;
+import common.types.Employee;
 
 public interface IHandler {
-    void approve(Request request);
-    Approver registerNext(Approver next);
+    Employee getType();
 }

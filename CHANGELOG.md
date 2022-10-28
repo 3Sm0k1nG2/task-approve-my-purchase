@@ -27,3 +27,24 @@ new: ... void approve(Request request);
 Changed structure of 'canApprove' method in class 'Approver' to requests a 'Request' parameter.
 old: ... boolean canApprove(int id, double cost, Type type);
 new: ... boolean canApprove(Request request);
+
+v1.1
+
+Removed package 'requests'.
+Modified class 'Request'
+Moved 'Request' to 'common'.
+
+Created package 'common.types'.
+Created enum 'Employee'.
+Renamed enum 'common.Type' to 'common.Item'.
+Moved enum 'common.Item' to 'common.types'.
+Created class 'TypeFormatter'.
+
+Modified package 'handlers'.
+Created class 'Handler' extending 'Approver' implementing 'IHandler'.
+Extracted repeated logic from all subclasses of 'Approver' into 'Handler'.
+Modified class 'Approver' changed interface to 'IApprover'.
+
+Modified package 'interfaces'.
+Created interface 'IApprover'.
+Modified interface 'IHandler'.

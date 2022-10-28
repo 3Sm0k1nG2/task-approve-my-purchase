@@ -1,5 +1,5 @@
-package common;
+package common.types;
 
-public enum Type {
+public enum Item {
     CONSUMABLES, CLERICAL, GADGETS, GAMING, PC
 }

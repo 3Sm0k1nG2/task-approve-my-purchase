@@ -1,9 +1,9 @@
 package handlers;
 
-import interfaces.IHandler;
-import requests.Request;
+import interfaces.IApprover;
+import common.Request;
 
-public abstract class Approver implements IHandler {
+public abstract class Approver implements IApprover {
     protected Approver next;
 
     /**

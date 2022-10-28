@@ -1,11 +1,10 @@
 package items;
 
-
-import common.Type;
+import common.types.Item;
 
 public class Clerical extends items.Item {
 
     public Clerical(double limit) {
-        super(limit, Type.CLERICAL);
+        super(limit, Item.CLERICAL);
     }
 }

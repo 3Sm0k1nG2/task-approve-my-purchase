@@ -63,3 +63,8 @@ Created class 'RequestTest'.
 
 Created package 'test.common'
 Created class 'Response'.
+
+v1.2.1
+
+Removed underscore as starting symbol in all private fields.
+Private fields are now called through 'this'.

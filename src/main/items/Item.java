@@ -4,19 +4,19 @@ import main.interfaces.IItem;
 
 public class Item implements IItem {
 
-    private double _cost;
-    private main.common.types.Item _type;
+    private double cost;
+    private main.common.types.Item type;
 
     public Item(double cost, main.common.types.Item type){
-        _type = type;
-        _cost = cost;
+        this.type = type;
+        this.cost = cost;
     }
 
     public main.common.types.Item getType() {
-        return _type;
+        return this.type;
     }
 
     public double getCost() {
-        return _cost;
+        return this.cost;
     }
 }

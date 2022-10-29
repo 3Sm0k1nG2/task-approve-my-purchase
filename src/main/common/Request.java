@@ -6,18 +6,18 @@ import main.items.Item;
 import java.util.UUID;
 
 public class Request implements IRequest {
-    private final UUID _id;
-    private final Item _item;
+    private final UUID id;
+    private final Item item;
 
     public Request(Item item){
-        _id = UUID.randomUUID();
-        _item = item;
+        this.id = UUID.randomUUID();
+        this.item = item;
     }
 
     public UUID getId(){
-        return _id;
+        return this.id;
     }
     public Item getItem(){
-        return _item;
+        return this.item;
     }
 }
